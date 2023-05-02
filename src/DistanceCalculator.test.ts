@@ -201,3 +201,31 @@ it("Will find the closest nodes in the grid", () => {
     calculator.collectNodesCloseToNodeInGrid(new Node(1, 0), grid)
   ).toStrictEqual([nodes[0], nodes[1]]);
 });
+
+it("Will find a number of closest nodes in a node list, excluding itself.", () => {
+  const nodes = [
+    new Node(1, 0),
+    new Node(0, 1),
+    new Node(2, 2),
+    new Node(5, 5),
+  ];
+
+  const calculator = new DistanceCalculator(nodes);
+
+  expect(
+    calculator.findXClosestNodesToNodeInList(new Node(0, 0), nodes, 2)
+  ).toStrictEqual([nodes[0], nodes[1]]);
+});
+
+it("Will return the nodes closest to a node.", () => {
+  const nodes = [
+    new Node(1, 0),
+    new Node(0, 1),
+    new Node(2, 2),
+    new Node(5, 5),
+  ];
+
+  const calculator = new DistanceCalculator(nodes);
+
+  expect(calculator.findClosestNodes(nodes[2], 4, 2)).toStrictEqual([nodes[0], nodes[1]])
+})

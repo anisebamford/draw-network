@@ -101,4 +101,26 @@ export class DistanceCalculator {
     }
     return nearbyNodes;
   }
+
+  findXClosestNodesToNodeInList(
+    node: Node,
+    nodeList: Node[],
+    amountToFind: number
+  ): Node[] {
+    return nodeList
+      .filter((n) => n !== node)
+      .sort((a, b) => {
+        return (
+          this.calculateDistance(node, a) - this.calculateDistance(node, b)
+        );
+      })
+      .slice(0, amountToFind);
+  }
+
+  findClosestNodes(node: Node, granularity: number, numberToFind: number): Node[] {
+    const grid = this.createEmptyNodeGrid(granularity)
+    this.assignMyNodesToGridCells(grid)
+    const list = this.collectNodesCloseToNodeInGrid(node, grid)
+    return this.findXClosestNodesToNodeInList(node, list, numberToFind)
+  }
 }
