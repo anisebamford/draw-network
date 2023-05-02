@@ -227,5 +227,8 @@ it("Will return the nodes closest to a node.", () => {
 
   const calculator = new DistanceCalculator(nodes);
 
-  expect(calculator.findClosestNodes(nodes[2], 4, 2)).toStrictEqual([nodes[0], nodes[1]])
-})
+  expect(calculator.findClosestNodes(nodes[2], 4, 2)).toStrictEqual([
+    nodes[0],
+    nodes[1],
+  ]);
+});

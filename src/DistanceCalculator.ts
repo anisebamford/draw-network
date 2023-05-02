@@ -117,10 +117,14 @@ export class DistanceCalculator {
       .slice(0, amountToFind);
   }
 
-  findClosestNodes(node: Node, granularity: number, numberToFind: number): Node[] {
-    const grid = this.createEmptyNodeGrid(granularity)
-    this.assignMyNodesToGridCells(grid)
-    const list = this.collectNodesCloseToNodeInGrid(node, grid)
-    return this.findXClosestNodesToNodeInList(node, list, numberToFind)
+  findClosestNodes(
+    node: Node,
+    granularity: number,
+    numberToFind: number
+  ): Node[] {
+    const grid = this.createEmptyNodeGrid(granularity);
+    this.assignMyNodesToGridCells(grid);
+    const list = this.collectNodesCloseToNodeInGrid(node, grid);
+    return this.findXClosestNodesToNodeInList(node, list, numberToFind);
   }
 }
