@@ -53,10 +53,10 @@ export class DistanceCalculator {
       do {
         row.cells.push({ nodes: [] } as Cell);
         j += cellWidth;
-      } while (j < xMax);
+      } while (j <= xMax);
       grid.rows.push(row);
       i += cellWidth;
-    } while (i < yMax);
+    } while (i <= yMax);
     return grid;
   }
 
