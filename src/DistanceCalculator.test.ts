@@ -24,11 +24,38 @@ it("Will determine its greatest and least x and y values", () => {
   ];
 
   const calculator = new DistanceCalculator(nodes);
-  expect(calculator.findMaxAndMinNodeValues())
+  expect(calculator.findMyMaxAndMinNodeValues())
     .toStrictEqual({
       xMax: 10,
       xMin: 0,
       yMax: 10,
       yMin: 0,
     })
+})
+
+it("Will create an empty grid", () => {
+  const nodes = [
+    new Node(0, 5),
+    new Node(3, 10),
+    new Node(10, 0)
+  ];
+
+  const calculator = new DistanceCalculator(nodes);
+
+  expect(calculator.createEmptyNodeGrid(1))
+    .toStrictEqual({
+      xMax: 10,
+      xMin: 0,
+      yMax: 10,
+      yMin: 0,
+      cellWidth: 10,
+      rows: [
+        {
+          cells: [
+            {
+              nodes: []
+            }
+          ]
+        }
+      ]})
 })
