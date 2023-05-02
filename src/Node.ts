@@ -24,4 +24,3 @@ export class Node {
     this.myY += y;
   }
 }
-
