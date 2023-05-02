@@ -195,8 +195,7 @@ it("Will find the closest nodes in the grid", () => {
     new Node(5, 5),
   ];
   const calculator = new DistanceCalculator(nodes);
-  const grid = calculator.createEmptyNodeGrid(1);
-  console.log(JSON.stringify(grid, null, 2))
+  const grid = calculator.createEmptyNodeGrid(5);
   calculator.assignMyNodesToGridCells(grid);
   expect(
     calculator.collectNodesCloseToNodeInGrid(new Node(1, 0), grid)
