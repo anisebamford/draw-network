@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "prettier --no-config -w ./src/*.ts"
   },
   "author": "",
   "license": "ISC",
