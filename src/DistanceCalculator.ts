@@ -56,9 +56,12 @@ export class DistanceCalculator {
     return grid
   }
 
-  assignMyNodesToGridCells(grid: Grid) {
+  assignMyNodesToGridCells(grid: Grid): Grid {
     for (const node of this.nodes) {
-      
+      const nodeRow = Math.floor((node.y - grid.yMin) / grid.cellWidth)
+      const nodeColumn = Math.floor((node.x - grid.xMin) / grid.cellWidth)
+      grid.rows[nodeRow].cells[nodeColumn].nodes.push(node)
     }
+    return grid
   }
 }

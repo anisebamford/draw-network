@@ -59,3 +59,109 @@ it("Will create an empty grid", () => {
         }
       ]})
 })
+
+it("Will assign nodes to their grid cells", () => {
+  const nodes = [
+    new Node(1, 1),
+    new Node(2, 2),
+    new Node(3, 3),
+  ]
+  const grid = {
+    xMin: 1,
+    xMax: 3,
+    yMin: 1,
+    yMax: 3,
+    cellWidth: 1,
+    rows: [
+      {
+        cells: [
+          {
+            nodes: [],
+          },
+          {
+            nodes: [],
+          },
+          {
+            nodes: []
+          },
+        ],
+      },
+      {
+        cells: [
+          {
+            nodes: [],
+          },
+          {
+            nodes: [],
+          },
+          {
+            nodes: []
+          },
+        ],
+      },
+      {
+        cells: [
+          {
+            nodes: [],
+          },
+          {
+            nodes: [],
+          },
+          {
+            nodes: []
+          },
+        ],
+      },
+    ],
+  };
+  const calculator = new DistanceCalculator(nodes);
+  expect(calculator.assignMyNodesToGridCells(grid))
+    .toStrictEqual({
+      xMin: 1,
+      yMin: 1,
+      xMax: 3,
+      yMax: 3,
+      cellWidth: 1,
+      rows: [
+      {
+        cells: [
+          {
+            nodes: [nodes[0]],
+          },
+          {
+            nodes: [],
+          },
+          {
+            nodes: []
+          },
+        ],
+      },
+      {
+        cells: [
+          {
+            nodes: [],
+          },
+          {
+            nodes: [nodes[1]],
+          },
+          {
+            nodes: []
+          },
+        ],
+      },
+      {
+        cells: [
+          {
+            nodes: [],
+          },
+          {
+            nodes: [],
+          },
+          {
+            nodes: [nodes[2]]
+          },
+        ],
+      },
+      ]
+    })
+})
