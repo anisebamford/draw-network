@@ -60,6 +60,29 @@ it("Will create an empty grid", () => {
       ]})
 })
 
+it("Will determine which cell a node belongs in", () => {
+  const nodes = [new Node(1, 1)]
+  const grid = {
+    xMax: 2,
+    xMin: 0,
+    yMax: 2,
+    yMin: 0,
+    cellWidth: 1,
+    rows: [
+      {
+        cells: [
+          {
+            nodes: []
+          }
+        ]
+      }
+    ]
+  }
+  const calculator = new DistanceCalculator(nodes);
+  expect(calculator.findNodeRowAndColumnInGrid(nodes[0], grid))
+    .toStrictEqual({nodeRow: 1, nodeColumn: 1});
+})
+
 it("Will assign nodes to their grid cells", () => {
   const nodes = [
     new Node(1, 1),
@@ -164,4 +187,21 @@ it("Will assign nodes to their grid cells", () => {
       },
       ]
     })
+})
+
+it("Will find the closest nodes in the grid", () => {
+  const nodes = [
+    new Node(0, 0),
+    new Node(0, 1),
+    new Node(2, 2),
+    new Node(5, 5),
+  ];
+  const calculator = new DistanceCalculator(nodes)
+  const grid = calculator.createEmptyNodeGrid(1)
+  calculator.assignMyNodesToGridCells(grid)
+  expect(calculator.collectNodesCloseToNodeInGrid(new Node(1, 0), grid))
+    .toStrictEqual([
+      nodes[0],
+      nodes[1],
+    ])
 })

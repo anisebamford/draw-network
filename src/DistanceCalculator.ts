@@ -56,12 +56,39 @@ export class DistanceCalculator {
     return grid
   }
 
+  findNodeRowAndColumnInGrid(node: Node, grid: Grid): {nodeRow: number, nodeColumn: number} {
+    const nodeRow = Math.floor((node.y - grid.yMin) / grid.cellWidth)
+    const nodeColumn = Math.floor((node.x - grid.xMin) / grid.cellWidth)
+    return {nodeRow, nodeColumn}
+  }
+
   assignMyNodesToGridCells(grid: Grid): Grid {
     for (const node of this.nodes) {
-      const nodeRow = Math.floor((node.y - grid.yMin) / grid.cellWidth)
-      const nodeColumn = Math.floor((node.x - grid.xMin) / grid.cellWidth)
+      const {nodeRow, nodeColumn} = this.findNodeRowAndColumnInGrid(node, grid)
       grid.rows[nodeRow].cells[nodeColumn].nodes.push(node)
     }
     return grid
+  }
+
+  collectNodesCloseToNodeInGrid(node: Node, grid: Grid): Node[] {
+    const {nodeRow, nodeColumn} = this.findNodeRowAndColumnInGrid(node, grid);
+    const cellsToTry = [
+      [nodeRow - 1, nodeColumn -1],
+      [nodeRow - 1, nodeColumn],
+      [nodeRow - 1, nodeColumn + 1],
+      [nodeRow, nodeColumn - 1],
+      [nodeRow, nodeColumn],
+      [nodeRow, nodeColumn + 1],
+      [nodeRow + 1, nodeColumn - 1],
+      [nodeRow + 1, nodeColumn],
+      [nodeRow + 1, nodeColumn + 1],
+    ];
+    const nearbyNodes = [];
+    for (const [row, column] of cellsToTry) {
+      if (grid.rows[row] && grid.rows[row].cells[column]) {
+        nearbyNodes.push(...grid.rows[row].cells[column].nodes)
+      }
+    }
+    return nearbyNodes
   }
 }
