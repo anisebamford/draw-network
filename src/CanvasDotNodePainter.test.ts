@@ -7,9 +7,9 @@ it("Will draw a node", () => {
   const ctx = canvas.getContext("2d")
 
   const node = new Node(50, 50);
-  const nodePainter = new CanvasDotNodePainter("green", "blue", 50)
   // @ts-ignore
-  nodePainter.paint(ctx, node)
+  const nodePainter = new CanvasDotNodePainter(ctx, "green", "blue", 50)
+  nodePainter.paint(node)
 
   expect(canvas.toBuffer()).toMatchImageSnapshot()
 })
