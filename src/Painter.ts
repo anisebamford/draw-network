@@ -18,11 +18,11 @@ export abstract class Painter<TElement extends Node | Edge> {
 export abstract class NodePainter<
   TNode extends Node = Node
 > extends Painter<TNode> {
-  paint(node: TNode): void {};
+  paint(node: TNode): void {}
 }
 
 export abstract class EdgePainter<
   TEdge extends Edge = Edge
 > extends Painter<TEdge> {
-  paint(edge: Edge): void {};
+  paint(edge: Edge): void {}
 }

@@ -10,7 +10,7 @@ export class CanvasDotNodePainter<
     protected strokeColor: Color<TNode>,
     protected width: number
   ) {
-    super()
+    super();
   }
 
   paint(node: TNode) {

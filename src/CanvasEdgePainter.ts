@@ -10,11 +10,11 @@ export class CanvasEdgePainter<
     protected strokeColor: Color<TEdge>,
     protected width: number
   ) {
-    super()
+    super();
   }
 
   paint(edge: TEdge) {
-    const [node1, node2] = edge.nodes
+    const [node1, node2] = edge.nodes;
     this.ctx.moveTo(node1.x, node1.y);
     this.ctx.lineWidth = this.width;
     this.ctx.fillStyle = this.resolveColor(this.fillColor, edge);
