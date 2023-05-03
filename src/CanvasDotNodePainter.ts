@@ -14,6 +14,7 @@ export class CanvasDotNodePainter<
   }
 
   paint(node: TNode) {
+    this.ctx.beginPath();
     this.ctx.moveTo(node.x - this.width / 2, node.y);
     this.ctx.fillStyle = this.resolveColor(this.fillColor, node);
     this.ctx.strokeStyle = this.resolveColor(this.strokeColor, node);

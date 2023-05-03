@@ -3,14 +3,17 @@ import { Node } from "./Node";
 import { Edge } from "./Edge";
 import { Network } from "./Network";
 
-export class NetworkPainter<
+export class CanvasNetworkPainter<
   TNode extends Node,
   TEdge extends Edge
 > extends Painter<TNode | TEdge> {
   constructor(
-    protected nodePaitner: NodePainter<TNode>,
+    protected ctx: CanvasRenderingContext2D,
+    protected nodePainter: NodePainter<TNode>,
     protected edgePainter: EdgePainter<TEdge>
-  ) {}
+  ) {
+    super()
+  }
 
   paintNodes(nodes: TNode[]) {
     for (const node of nodes) {
@@ -20,7 +23,7 @@ export class NetworkPainter<
 
   paintEdges(edges: TEdge[]) {
     for (const edge of edges) {
-      this.edgePainter.paint(node);
+      this.edgePainter.paint(edge);
     }
   }
 
