@@ -12,7 +12,7 @@ export class CanvasNetworkPainter<
     protected nodePainter: NodePainter<TNode>,
     protected edgePainter: EdgePainter<TEdge>
   ) {
-    super()
+    super();
   }
 
   paintNodes(nodes: TNode[]) {

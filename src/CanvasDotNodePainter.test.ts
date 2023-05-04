@@ -21,13 +21,13 @@ it("Will draw different colored nodes", () => {
   const node1 = new Node(25, 50);
   const node2 = new Node(75, 50);
 
-  const nodeColor = (node: Node) => node.x < 50 ? "green" : "orange"
+  const nodeColor = (node: Node) => (node.x < 50 ? "green" : "orange");
 
   // @ts-ignore
-  const nodePainter = new CanvasDotNodePainter(ctx, nodeColor, nodeColor, 15)
+  const nodePainter = new CanvasDotNodePainter(ctx, nodeColor, nodeColor, 15);
 
-  nodePainter.paint(node1)
-  nodePainter.paint(node2)
+  nodePainter.paint(node1);
+  nodePainter.paint(node2);
 
   expect(canvas.toBuffer()).toMatchImageSnapshot();
-})
+});

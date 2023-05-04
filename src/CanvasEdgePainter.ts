@@ -15,6 +15,7 @@ export class CanvasEdgePainter<
 
   paint(edge: TEdge) {
     const [node1, node2] = edge.nodes;
+    this.ctx.beginPath();
     this.ctx.moveTo(node1.x, node1.y);
     this.ctx.lineWidth = this.width;
     this.ctx.fillStyle = this.resolveColor(this.fillColor, edge);
