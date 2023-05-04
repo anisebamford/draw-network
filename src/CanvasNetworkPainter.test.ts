@@ -33,6 +33,7 @@ it("Will paint a network", () => {
   const edgePainter = new CanvasEdgePainter(ctx, edgeColor, edgeColor, 3);
   // @ts-ignore
   const networkPainter = new CanvasNetworkPainter(
+    // @ts-ignore
     ctx,
     nodePainter,
     edgePainter
