@@ -2,9 +2,9 @@
   "name": "draw-network",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist; tsc",
     "test": "jest",
     "lint": "prettier --no-config -w ./src/*.ts"
   },
