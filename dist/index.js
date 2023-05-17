@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Node = exports.Network = exports.Edge = exports.DistanceCalculator = exports.CanvasNetworkPainter = exports.CanvasEdgePainter = exports.CanvasDotNodePainter = void 0;
+exports.Node = exports.Network = exports.Edge = exports.DistanceCalculator = exports.CanvasNetworkPainter = exports.CanvasEdgePainter = exports.CanvasBackgroundPainter = exports.CanvasDotNodePainter = void 0;
 var CanvasDotNodePainter_1 = require("./CanvasDotNodePainter");
 Object.defineProperty(exports, "CanvasDotNodePainter", { enumerable: true, get: function () { return CanvasDotNodePainter_1.CanvasDotNodePainter; } });
+var CanvasBackgroundPainter_1 = require("./CanvasBackgroundPainter");
+Object.defineProperty(exports, "CanvasBackgroundPainter", { enumerable: true, get: function () { return CanvasBackgroundPainter_1.CanvasBackgroundPainter; } });
 var CanvasEdgePainter_1 = require("./CanvasEdgePainter");
 Object.defineProperty(exports, "CanvasEdgePainter", { enumerable: true, get: function () { return CanvasEdgePainter_1.CanvasEdgePainter; } });
 var CanvasNetworkPainter_1 = require("./CanvasNetworkPainter");
