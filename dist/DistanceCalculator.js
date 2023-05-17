@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DistanceCalculator = void 0;
 var DistanceCalculator = /** @class */ (function () {
     function DistanceCalculator(nodes) {
         this.nodes = nodes;
@@ -98,4 +101,4 @@ var DistanceCalculator = /** @class */ (function () {
     };
     return DistanceCalculator;
 }());
-export { DistanceCalculator };
+exports.DistanceCalculator = DistanceCalculator;

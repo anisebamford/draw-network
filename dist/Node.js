@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Node = void 0;
 var Node = /** @class */ (function () {
     function Node(myX, myY) {
         this.myX = myX;
@@ -30,4 +33,4 @@ var Node = /** @class */ (function () {
     };
     return Node;
 }());
-export { Node };
+exports.Node = Node;

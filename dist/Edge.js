@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Edge = void 0;
 var Edge = /** @class */ (function () {
     function Edge(myNode1, myNode2) {
         this.myNode1 = myNode1;
@@ -12,4 +15,4 @@ var Edge = /** @class */ (function () {
     });
     return Edge;
 }());
-export { Edge };
+exports.Edge = Edge;

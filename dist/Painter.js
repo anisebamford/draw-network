@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,6 +14,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EdgePainter = exports.NodePainter = exports.Painter = void 0;
 var Painter = /** @class */ (function () {
     function Painter() {
     }
@@ -21,7 +24,7 @@ var Painter = /** @class */ (function () {
     };
     return Painter;
 }());
-export { Painter };
+exports.Painter = Painter;
 var NodePainter = /** @class */ (function (_super) {
     __extends(NodePainter, _super);
     function NodePainter() {
@@ -30,7 +33,7 @@ var NodePainter = /** @class */ (function (_super) {
     NodePainter.prototype.paint = function (node) { };
     return NodePainter;
 }(Painter));
-export { NodePainter };
+exports.NodePainter = NodePainter;
 var EdgePainter = /** @class */ (function (_super) {
     __extends(EdgePainter, _super);
     function EdgePainter() {
@@ -39,4 +42,4 @@ var EdgePainter = /** @class */ (function (_super) {
     EdgePainter.prototype.paint = function (edge) { };
     return EdgePainter;
 }(Painter));
-export { EdgePainter };
+exports.EdgePainter = EdgePainter;

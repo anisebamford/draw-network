@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,7 +14,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { Painter } from "./Painter";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CanvasNetworkPainter = void 0;
+var Painter_1 = require("./Painter");
 var CanvasNetworkPainter = /** @class */ (function (_super) {
     __extends(CanvasNetworkPainter, _super);
     function CanvasNetworkPainter(ctx, nodePainter, edgePainter) {
@@ -40,5 +43,5 @@ var CanvasNetworkPainter = /** @class */ (function (_super) {
         this.paintNodes(network.nodes);
     };
     return CanvasNetworkPainter;
-}(Painter));
-export { CanvasNetworkPainter };
+}(Painter_1.Painter));
+exports.CanvasNetworkPainter = CanvasNetworkPainter;

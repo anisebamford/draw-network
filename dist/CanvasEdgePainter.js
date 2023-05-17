@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,7 +14,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { EdgePainter } from "./Painter";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CanvasEdgePainter = void 0;
+var Painter_1 = require("./Painter");
 var CanvasEdgePainter = /** @class */ (function (_super) {
     __extends(CanvasEdgePainter, _super);
     function CanvasEdgePainter(ctx, fillColor, strokeColor, width) {
@@ -36,5 +39,5 @@ var CanvasEdgePainter = /** @class */ (function (_super) {
         this.ctx.fill();
     };
     return CanvasEdgePainter;
-}(EdgePainter));
-export { CanvasEdgePainter };
+}(Painter_1.EdgePainter));
+exports.CanvasEdgePainter = CanvasEdgePainter;
