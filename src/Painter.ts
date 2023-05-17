@@ -1,9 +1,9 @@
 import { Node } from "./Node";
 import { Edge } from "./Edge";
 
-export type Color<TElement extends Node | Edge> =
+export type Color<TElement extends Node | Edge = never> =
   | string
-  | ((TElement) => string);
+  | ((element?: TElement) => string);
 
 export abstract class Painter<TElement extends Node | Edge> {
   protected strokeColor: Color<TElement>;

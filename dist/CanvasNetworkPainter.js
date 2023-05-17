@@ -19,11 +19,12 @@ exports.CanvasNetworkPainter = void 0;
 var Painter_1 = require("./Painter");
 var CanvasNetworkPainter = /** @class */ (function (_super) {
     __extends(CanvasNetworkPainter, _super);
-    function CanvasNetworkPainter(ctx, nodePainter, edgePainter) {
+    function CanvasNetworkPainter(ctx, nodePainter, edgePainter, backgroundPainter) {
         var _this = _super.call(this) || this;
         _this.ctx = ctx;
         _this.nodePainter = nodePainter;
         _this.edgePainter = edgePainter;
+        _this.backgroundPainter = backgroundPainter;
         return _this;
     }
     CanvasNetworkPainter.prototype.paintNodes = function (nodes) {
@@ -38,7 +39,12 @@ var CanvasNetworkPainter = /** @class */ (function (_super) {
             this.edgePainter.paint(edge);
         }
     };
+    CanvasNetworkPainter.prototype.paintBackground = function () {
+        if (this.backgroundPainter)
+            this.backgroundPainter.paint();
+    };
     CanvasNetworkPainter.prototype.paint = function (network) {
+        this.paintBackground();
         this.paintEdges(network.edges);
         this.paintNodes(network.nodes);
     };

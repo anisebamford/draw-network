@@ -1,4 +1,5 @@
 import { NodePainter, EdgePainter, Painter } from "./Painter";
+import { CanvasBackgroundPainter } from "./CanvasBackgroundPainter";
 import { Node } from "./Node";
 import { Edge } from "./Edge";
 import { Network } from "./Network";
@@ -10,7 +11,8 @@ export class CanvasNetworkPainter<
   constructor(
     protected ctx: CanvasRenderingContext2D,
     protected nodePainter: NodePainter<TNode>,
-    protected edgePainter: EdgePainter<TEdge>
+    protected edgePainter: EdgePainter<TEdge>,
+    protected backgroundPainter?: CanvasBackgroundPainter
   ) {
     super();
   }
@@ -27,7 +29,12 @@ export class CanvasNetworkPainter<
     }
   }
 
+  paintBackground() {
+    if (this.backgroundPainter) this.backgroundPainter.paint();
+  }
+
   paint(network: Network<TNode, TEdge>) {
+    this.paintBackground();
     this.paintEdges(network.edges);
     this.paintNodes(network.nodes);
   }
