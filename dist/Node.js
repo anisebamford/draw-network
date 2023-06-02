@@ -20,16 +20,7 @@ var Node = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Node.unfreeze = function (serialized) {
-        var _a = JSON.parse(serialized), x = _a.x, y = _a.y;
-        return new Node(x, y);
-    };
-    Node.prototype.freeze = function () {
-        return JSON.stringify({ x: this.myX, y: this.myY });
-    };
-    Node.prototype.move = function (x, y) {
-        this.myX += x;
-        this.myY += y;
+    Node.prototype.move = function () {
     };
     return Node;
 }());

@@ -4,7 +4,5 @@ export declare class Node {
     get x(): number;
     get y(): number;
     constructor(myX: number, myY: number);
-    static unfreeze(serialized: string): Node;
-    freeze(): string;
-    move(x: any, y: any): void;
+    move(): void;
 }
